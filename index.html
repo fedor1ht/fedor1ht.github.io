@@ -218,7 +218,7 @@
                     </div>
                 </div>
                 <div class="row posts-container">
-                    <div class="post-excerpt post-excerpt-left wow fadeInUp" data-wow-delay="0.55s">
+                    <div class="post-excerpt post-excerpt-left wow fadeInUp" data-wow-delay="0.5s">
                         <div class="post-content">
                             <h3 class="post-title">Beijing China</h3>
                             <p class="post-description">Started Undergraduate study of Industrial Engineering at Beijing Institute of Technology</p>
@@ -244,7 +244,7 @@
                             <p class="post-description">Continued study at Australian National University, graduated with a Distinction average</p>
                         </div>
                     </div>
-                    <div class="post-excerpt post-excerpt-left wow fadeInUp" data-wow-delay="0.65s">
+                    <div class="post-excerpt post-excerpt-left wow fadeInUp" data-wow-delay="0.7s">
                         <div class="post-content">
                             <h3 class="post-title">Shanghai China</h3>
                             <p class="post-description">Academic research work, travel, and various secondment roles across China and Australia</p>
@@ -258,7 +258,7 @@
                             <img src="img/blog-arrow.png" alt="arrow">
                         </div>
                     </div>
-                    <div class="post-excerpt post-excerpt-right wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="post-excerpt post-excerpt-right wow fadeInUp" data-wow-delay="0.8s">
                         <div class="post-arrow-container">
                             <img src="img/blog-arrow.png" alt="arrow">
                         </div>
@@ -272,7 +272,7 @@
 
                         </div>
                     </div>
-                    <div class="post-excerpt post-excerpt-left wow fadeInUp" data-wow-delay="0.75s">
+                    <div class="post-excerpt post-excerpt-left wow fadeInUp" data-wow-delay="0.9s">
                         <div class="post-content">
                             <h3 class="post-title">Sydney Australia</h3>
                             <p class="post-description">Started as an Enterprise Services Graduate at Commonwealth Bank of Australia</p>
@@ -300,22 +300,25 @@
                         <p>Have an enquiry or career advice for LAN? </p>
                     </div>
                     <div class="col-lg-offset-1 col-lg-10 section-title wow fadeInUp" data-wow-delay="0.5s">
-                        <form action="#" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
+                        <form name="contact" action="#" method="post" class="wow fadeInUp" data-wow-delay="0.6s">
                             <div class="col-md-6 col-sm-6">
                                 <input name="name" type="text" class="form-control" id="name" placeholder="Name">
                             </div>
                             <div class="col-md-6 col-sm-6">
-                                <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                                <input name="email" type="email" class="form-control" id="email" placeholder="Email" onchange="validateEmail();">
                             </div>
                             <div class="col-md-12 col-sm-12">
                                 <textarea name="message" rows="6" class="form-control" id="message" placeholder="Message"></textarea>
                             </div>
                             <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6">
-                                <input type="submit" class="form-control" value="SEND MESSAGE">
+                                <input type="button" class="form-control" value="SEND MESSAGE" onclick="validateMsg();">
                             </div>
                         </form>
                     </div>
-                </div>            
+                </div>
+				<div class="col-lg-offset-1 col-lg-10 section-title wow fadeInUp" data-wow-delay="0.5s">
+                    <div id="google_map"></div>
+                </div>				
             </div>
         </section>
 
@@ -331,6 +334,42 @@
 		<script type="text/javascript" src="js/wow.min.js"></script>
 		<script type="text/javascript" src="js/vegas.min.js"></script>
         <script type="text/javascript" src="js/templatemo-script.js"></script>
+		
+		<script>
+			function myMap() {
+			    var mapOptions = {
+			        center: new google.maps.LatLng(-33.87, 151.20),
+			        zoom: 14,
+			        mapTypeId: google.maps.MapTypeId.HYBRID
+			    }
+				var map = new google.maps.Map(document.getElementById("google_map"), mapOptions);
+			}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 
+        <script>
+            function validateEmail() {
+                var x = document.forms["contact"]["email"].value;
+                var atpos = x.indexOf("@");
+                var dotpos = x.lastIndexOf(".");
+                if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+                    alert("Please input a correct Email address.");
+                    return false;
+                }
+            }
+        </script>	
+
+        <script>
+            function validateMsg() {
+                var name = document.forms["contact"]["name"].value;
+                var email = document.forms["contact"]["email"].value;
+                var message = document.forms["contact"]["message"].value;
+
+                if (name == "" || email == "" || message == "") {
+                    alert("Please complete the form.");
+                    return false;
+                }
+            }
+        </script>   
     </body>
 </html>
