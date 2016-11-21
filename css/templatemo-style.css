@@ -995,4 +995,14 @@ footer { background: #122f35; }
 }
 @media screen and (max-width: 360px) {
 	.crsl-nav { top: -127px; }
+  .section-title {
+    font-size: 30px;
+    letter-spacing: 5px;
+  }
+  #home h1 {
+    font-size: 30px;
+    letter-spacing: 5px;
+  }
 }
+}
+
