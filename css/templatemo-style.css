@@ -821,7 +821,7 @@ footer { background: #122f35; }
   height: 40px;
 }
 
-#contact input[type="submit"] {
+#contact input[type="button"] {
   background: #337ab7;
   border:none;
   color: #ffffff;
@@ -829,7 +829,7 @@ footer { background: #122f35; }
   letter-spacing: 1px;
 }
 
-#contact input[type="submit"]:hover {
+#contact input[type="button"]:hover {
   background: #337ab7;
   color: #ffffff;
 }
@@ -839,11 +839,18 @@ footer { background: #122f35; }
 	margin-right: 0;
 	width: 100%;
 }
-.google-map-container {
-	border: 1px solid #ddd;
-	padding: 5px;
+
+
+#google_map {
+	height:450px;
+  width: 100%;
+    font-weight: 300;
+    font-size: 42px;
+    line-height: 1rem;
+    letter-spacing:1px;
+	
 }
-.google-map { height: 420px; }
+
 
 /******************** Media Queries ********************/
 
@@ -969,6 +976,14 @@ footer { background: #122f35; }
 	}
 	.tm-blocks-container { max-width: 240px; }
 	.folio-filters li { margin: 0; }
+  .section-title {
+    font-size: 35px;
+    letter-spacing: 7px;
+  }
+  #home h1 {
+    font-size: 35px;
+    letter-spacing: 6px;
+  }
 }
 @media screen and (max-width: 400px) {
 	.btn-blue-gradient { margin-right: 8px; }
@@ -981,4 +996,3 @@ footer { background: #122f35; }
 @media screen and (max-width: 360px) {
 	.crsl-nav { top: -127px; }
 }
-
